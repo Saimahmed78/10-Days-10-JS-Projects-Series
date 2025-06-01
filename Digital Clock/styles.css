@@ -1,0 +1,132 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #1f1c2c, #928dab);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+  padding: 1rem;
+}
+
+#clock {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+  width: 100%;
+  max-width: 400px;
+}
+
+#time {
+  font-size: 4rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+  animation: pulse 1s infinite alternate;
+}
+
+#date {
+  font-size: 1.2rem;
+  color: #ddd;
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
+}
+
+#greeting {
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.toggleBtn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #ffffff22;
+  color: #fff;
+  border: 2px solid #ffffff66;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.toggleBtn:hover {
+  background-color: #ffffff44;
+  transform: scale(1.05);
+}
+
+.toggleBtn:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 10px #ffffff66;
+}
+
+/* Light Mode Styles */
+body.light-mode {
+  background: linear-gradient(to right, #fdfbfb, #ebedee);
+  color: #222;
+}
+
+body.light-mode #clock {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #222;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode #date {
+  color: #555;
+}
+
+body.light-mode .toggleBtn {
+  background-color: #00000010;
+  color: #222;
+  border-color: #22222244;
+}
+
+body.light-mode .toggleBtn:hover {
+  background-color: #00000022;
+}
+
+/* Animations */
+@keyframes pulse {
+  from {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  }
+  to {
+    text-shadow: 0 0 18px rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 480px) {
+  #time {
+    font-size: 3rem;
+  }
+
+  .toggleBtn {
+    width: 100%;
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+  }
+
+  #clock {
+    padding: 1.5rem 1.2rem;
+  }
+
+  #greeting {
+    font-size: 1.1rem;
+  }
+}
