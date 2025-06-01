@@ -1,8 +1,24 @@
 # ⏰ Digital Clock
 
+📡 **Live Demo**: [https://digitalclock-psi.vercel.app](https://digitalclock-psi.vercel.app)
+
 A beautifully styled, responsive digital clock web app that displays the current time, date, and a personalized greeting. It supports light/dark mode switching, 12/24-hour format toggle, and automatic theming based on time of day.
 
 ---
+## 📂 Folder Structure
+
+10 JS Projects/
+│
+├── Digital Clock/
+│   ├── index.html
+│   ├── script.js
+│   ├── styles.css
+│   ├── README.md
+│   └── Screenshots/
+│       ├── Darkmode.png
+│       └── LightMode.png
+│
+└── README.md  ← Root README for all 10 JS projects
 
 ## 🚀 Features
 
@@ -100,10 +116,12 @@ A beautifully styled, responsive digital clock web app that displays the current
 ## 📸 Screenshot
 
 **Dark Mode**
-![DarkMode](/Digital%20Clock/Screenshots/Darkmode.png)
+![Dark Mode](./Screenshots/Darkmode.png)
+
+
 ---
 **Light Mode**
-![DarkMode](/Digital%20Clock/Screenshots/LightMode.png)
+![DarkMode](./Screenshots/Screenshots/LightMode.png)
 
 ## 🧑‍💻 Author
 
@@ -111,6 +129,7 @@ A beautifully styled, responsive digital clock web app that displays the current
 _Crafted with ❤️ using vanilla JavaScript, CSS magic, and forward-thinking logic._
 
 ---
+
 
 ## 📜 License
 
