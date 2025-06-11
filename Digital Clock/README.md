@@ -121,7 +121,7 @@ A beautifully styled, responsive digital clock web app that displays the current
 
 ---
 **Light Mode**
-![DarkMode](./Screenshots/Screenshots/LightMode.png)
+![DarkMode](./Screenshots/LightMode.png)
 
 ## 🧑‍💻 Author
 
