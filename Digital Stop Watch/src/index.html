@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🕒 Sports Timer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🕒 Sports Timer</h1>
+      <div class="mode-toggle">
+        <button id="stopwatchBtn" class="active">Stopwatch</button>
+        <button id="countdownBtn">Countdown</button>
+      </div>
+
+      <div id="stopwatchDisplay" class="timer-display">00:00:00:000</div>
+      <div id="countdownDisplay" class="timer-display" style="display: none">
+        00:00:00.000
+      </div>
+
+      <div id="countdownInputs" class="countdown-inputs">
+        <input type="number" id="hours" min="0" max="24" placeholder="HH" />
+        <input type="number" id="minutes" min="0" max="59" placeholder="MM" />
+        <input type="number" id="seconds" min="0" max="59" placeholder="SS" />
+      </div>
+
+      <div class="controls">
+        <button id="startBtn">Start</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="resumeBtn">Resume</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+    </div>
+
+
+    <script src="index.js"></script>
+  </body>
+</html>
