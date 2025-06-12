@@ -23,12 +23,12 @@ body {
   border-radius: 1.5rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
   width: 100%;
-  max-width: 500px;
+  max-width: 480px;
   text-align: center;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -40,10 +40,9 @@ h1 {
   justify-content: center;
   margin-bottom: 1.5rem;
 }
-
 .mode-toggle button {
   flex: 1;
-  padding: 0.75rem;
+  padding: 0.5rem;
   margin: 0 0.25rem;
   border: none;
   border-radius: 0.75rem;
@@ -51,8 +50,8 @@ h1 {
   color: #ddd;
   cursor: pointer;
   transition: background 0.3s;
+  font-size: 0.9rem;
 }
-
 .mode-toggle button.active,
 .mode-toggle button:hover {
   background: #ff4081;
@@ -62,28 +61,29 @@ h1 {
 
 /* Timer Display */
 .timer-display {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
   font-family: 'Courier New', monospace;
   margin: 1rem 0;
-  padding: 1rem;
+  padding: 0.75rem;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   border: 3px solid #ff4081;
   position: relative;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 /* Countdown Inputs */
 .countdown-inputs {
-  display: flex; /* fixed: was missing */
+  display: flex;
   margin: 1rem 0;
   gap: 0.5rem;
   justify-content: center;
   flex-wrap: wrap;
 }
-
 .countdown-inputs input {
-  width: 70px;
+  width: 60px;
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 2px solid #666;
@@ -100,9 +100,8 @@ h1 {
   justify-content: center;
   flex-wrap: wrap;
 }
-
 .controls button {
-  padding: 0.75rem 1.25rem;
+  padding: 0.6rem 1rem;
   border: none;
   border-radius: 0.75rem;
   background: #00e676;
@@ -110,8 +109,9 @@ h1 {
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.2s, background 0.3s;
+  flex: 1;
+  min-width: 80px;
 }
-
 .controls button:hover {
   transform: translateY(-2px);
   background: #1b5e20;
@@ -120,63 +120,29 @@ h1 {
 
 /* Animations */
 @keyframes flashBorder {
-  0%,
-  100% {
-    box-shadow: 0 0 20px #ff4081;
-  }
-  50% {
-    box-shadow: 0 0 40px #ffeb3b;
-  }
+  0%, 100% { box-shadow: 0 0 20px #ff4081; }
+  50% { box-shadow: 0 0 40px #ffeb3b; }
 }
-
-.alert {
-  animation: flashBorder 1s ease-in-out infinite;
-}
+.alert { animation: flashBorder 1s ease-in-out infinite; }
 
 .celebrate {
   animation: shake 0.4s infinite, glow 1s ease-in-out infinite alternate;
 }
-
 @keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(4px);
-  }
-  50% {
-    transform: translateX(-4px);
-  }
-  75% {
-    transform: translateX(4px);
-  }
-  100% {
-    transform: translateX(0);
-  }
+  0% { transform: translateX(0); }
+  25% { transform: translateX(4px); }
+  50% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
 }
-
 @keyframes glow {
-  from {
-    box-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
-  }
-  to {
-    box-shadow: 0 0 20px #0f0, 0 0 30px #0f0;
-  }
+  from { box-shadow: 0 0 5px #0f0, 0 0 10px #0f0; }
+  to { box-shadow: 0 0 20px #0f0, 0 0 30px #0f0; }
 }
 
-/* Responsive */
+/* Responsive Adjustments */
 @media (max-width: 400px) {
-  .timer-display {
-    font-size: 2.5rem;
-  }
-
-  .controls button {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-  }
-
-  .mode-toggle button {
-    padding: 0.6rem;
-    font-size: 0.9rem;
-  }
+  .timer-display { font-size: 2rem; padding: 0.5rem; }
+  .controls button { padding: 0.5rem 0.8rem; font-size: 0.8rem; }
+  .mode-toggle button { padding: 0.5rem; font-size: 0.8rem; }
 }
