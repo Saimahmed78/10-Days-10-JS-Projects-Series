@@ -10,7 +10,8 @@ body {
   height: 100vh;
   overflow: hidden;
   font-family: 'Orbitron', sans-serif;
-  background: url('./background_image.png') no-repeat center center/cover;
+ background: url('../public/background_image.webp') no-repeat center center/cover;
+
   animation: backgroundScroll 60s linear infinite;
   display: flex;
   justify-content: center;
@@ -19,6 +20,7 @@ body {
   color: white;
   position: relative;
 }
+
 
 /* Background animation */
 @keyframes backgroundScroll {
