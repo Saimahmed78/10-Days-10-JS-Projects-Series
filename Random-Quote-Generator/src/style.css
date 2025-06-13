@@ -1,0 +1,164 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
+  background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d') no-repeat center center/cover;
+  animation: backgroundScroll 60s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: white;
+  position: relative;
+}
+
+/* Background animation */
+@keyframes backgroundScroll {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Stars overlay */
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.imgur.com/U4W3QJG.png');
+  animation: starScroll 200s linear infinite;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+@keyframes starScroll {
+  from { background-position: 0 0; }
+  to { background-position: -10000px 10000px; }
+}
+
+/* Container */
+.container {
+  z-index: 2;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Title Styling */
+.main-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #0eed1c;
+  text-shadow:
+    0 0 10px rgba(77, 108, 119, 0.8),
+    0 0 20px rgba(173, 216, 230, 0.5),
+    0 0 40px rgba(173, 216, 230, 0.2);
+  animation: glitchSoft 4s infinite;
+  letter-spacing: 3px;
+}
+
+@keyframes glitchSoft {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(1px, -1px);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translate(-1px, 1px);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(0.5px, -0.5px);
+    opacity: 0.98;
+  }
+}
+
+/* Quote Box with Glassmorphism + Animation */
+.quote-box {
+  background: rgba(0, 0, 0, 0.548);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow:
+    0 0 5px rgba(15, 16, 16, 0.2),
+    0 0 5px rgba(0, 255, 255, 0.15);
+  animation: float 6s ease-in-out infinite, pulseGlow 5s infinite;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Quote Icon */
+.quote-icon {
+  width: 50px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px #00ffffaa);
+  animation: glowIcon 3s ease-in-out infinite;
+}
+
+@keyframes glowIcon {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* Quote Text */
+.quote {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 0 5px #4e2f2faa;
+}
+
+/* Author Styling */
+.author {
+  font-size: 1.2rem;
+  color: #dddddd;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+/* Button Styling */
+button {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 1rem;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+button:hover {
+  transform: scale(1.1) rotate(1deg);
+  box-shadow: 0 0 20px rgba(255, 0, 150, 0.6);
+}
+
+/* Pulse Glow Animation */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 25px rgba(255, 255, 255, 0.3); }
+  50% { box-shadow: 0 0 50px rgba(255, 0, 255, 0.6); }
+}
