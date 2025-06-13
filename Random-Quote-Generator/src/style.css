@@ -10,7 +10,7 @@ body {
   height: 100vh;
   overflow: hidden;
   font-family: 'Orbitron', sans-serif;
-  background: url('/Random-Quote-Generator/src/background_image.png') no-repeat center center/cover;
+  background: url('./background_image.png') no-repeat center center/cover;
   animation: backgroundScroll 60s linear infinite;
   display: flex;
   justify-content: center;
