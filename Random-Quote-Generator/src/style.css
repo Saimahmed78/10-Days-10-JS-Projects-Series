@@ -39,17 +39,22 @@ body {
 
 /* Title Styling */
 .main-title {
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: center;
   margin-bottom: 30px;
-  color: #0eed1c;
-  text-shadow:
-    0 0 10px rgba(77, 108, 119, 0.8),
-    0 0 20px rgba(173, 216, 230, 0.5),
-    0 0 40px rgba(173, 216, 230, 0.2);
-  animation: glitchSoft 4s infinite;
-  letter-spacing: 3px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* border: 2px solid #ffffff; */
 }
+
+
+
+
 
 @keyframes glitchSoft {
   0%, 100% {
