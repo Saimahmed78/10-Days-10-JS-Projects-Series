@@ -10,7 +10,7 @@ body {
   height: 100vh;
   overflow: hidden;
   font-family: 'Orbitron', sans-serif;
- background: url('../public/background_image.webp') no-repeat center center/cover;
+ background: url('background_image.webp');
 
   animation: backgroundScroll 60s linear infinite;
   display: flex;
