@@ -69,6 +69,7 @@ html, body {
 
 /* 💡 Display */
 .display {
+
   background: #111827;
   color: #34d399;
   font-size: 2.4rem;
@@ -78,9 +79,15 @@ html, body {
   border-radius: 12px;
   margin-bottom: 1rem;
   box-shadow: inset 0 0 10px #00000066;
-  word-wrap: break-word;
-  overflow-x: auto;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  direction: rtl;
+ 
 }
+
+
 
 /* 🔘 Buttons Grid */
 .buttons {
