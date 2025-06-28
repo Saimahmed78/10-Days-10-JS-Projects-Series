@@ -29,6 +29,9 @@ body.light-mode {
 }
 
 .toggleBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -44,9 +47,20 @@ body.light-mode {
   z-index: 10;
 }
 
+.toggleBtn svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
 .toggleBtn:hover {
   background-color: #ffffff33;
   transform: scale(1.05);
+}
+
+.toggleBtn:hover svg {
+  filter: drop-shadow(0 0 4px currentColor);
 }
 
 body.light-mode .toggleBtn {
@@ -118,7 +132,7 @@ body.light-mode input::placeholder {
   color: #aaa;
 }
 
-button#calculateBtn {
+button.Btn {
   width: 100%;
   padding: 0.9rem;
   background: #facc15;
@@ -181,6 +195,28 @@ button#calculateBtn:hover {
 
 body.light-mode .highlight {
   color: #15803d;
+}
+.alert {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ef4444;
+  color: white;
+  padding: 1rem 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.alert.show {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.05);
 }
 
 /* Responsive Enhancements */
