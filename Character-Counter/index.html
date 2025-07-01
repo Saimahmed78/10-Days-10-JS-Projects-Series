@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Analyzer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>🧠 Text Analyzer</h1>
+      <button class="toggleBtn" id="toggleThemeBtn">Toggle Theme</button>
+    </header>
+
+    <main>
+      <section class="card">
+        <label for="input">Enter Text:</label>
+        <textarea id="input" rows="8" maxlength="500"></textarea>
+        <p><strong>Characters:</strong> <span id="charCount">0</span> / 500</p>
+      </section>
+
+      <section class="card">
+        <h2>📊 Analysis</h2>
+        <ul>
+          <li><strong>Words:</strong> <span id="wordsCount">0</span></li>
+          <li><strong>Sentences:</strong> <span id="sentenceCount">0</span></li>
+          <li>
+            <strong>Longest Word:</strong> <span id="longestWord">-</span>
+          </li>
+          <li>
+            <strong>Average Word Length:</strong> <span id="avgLength">0</span>
+          </li>
+          <li>
+            <strong>Total Alphabets:</strong> <span id="alphabetsCount">0</span>
+          </li>
+        </ul>
+        <button class="btn" id="analyzeText">Analyze</button>
+        <button class="btn" id="reset">Analyze</button>        
+    <div id="alertBox" class="alert hidden"></div>
+
+      </section>
+    </main>
+    <template id="sun-icon-template">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-sun-icon lucide-sun"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2" />
+        <path d="M12 20v2" />
+        <path d="m4.93 4.93 1.41 1.41" />
+        <path d="m17.66 17.66 1.41 1.41" />
+        <path d="M2 12h2" />
+        <path d="M20 12h2" />
+        <path d="m6.34 17.66-1.41 1.41" />
+        <path d="m19.07 4.93-1.41 1.41" />
+      </svg>
+    </template>
+
+    <template id="moon-icon-template">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-moon-icon lucide-moon"
+        viewBox="0 0 24 24"
+      >
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+      </svg>
+    </template>
+    <script src="index.js"></script>
+  </body>
+</html>
