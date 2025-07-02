@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎨 Background Color Changer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>🎨 Background Color Changer</h1>
+    </header>
+
+    <section id="color-box" class="color-box">
+      <p>This box changes color 👇</p>
+    </section>
+
+    <section class="controls">
+      <button id="change-btn">Change Color</button>
+      <button id="reset-btn" class="reset">Reset</button>
+    </section>
+
+    <section class="info">
+      <div><strong>Current RGB:</strong> <span id="rgb-code">rgb(255, 255, 255)</span></div>
+      <div><strong>Change Count:</strong> <span id="change-count">0</span></div>
+    </section>
+
+    <section class="history">
+      <h2>🕘 Color History</h2>
+      <ul id="color-history"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
