@@ -11,6 +11,8 @@ colorPickerInput.addEventListener("input", () => {
   showCompColor(selectedColor);
 });
 
+copyButton.addEventListener("click", copyToClipBoard);
+
 function showSelectedColor(color) {
   selectedColorDisplay.textContent = color;
   selectedColorDisplay.style.color = color;
@@ -26,4 +28,20 @@ function calculateCompColor(color) {
   const intColor = parseInt(color.slice(1), 16);
   const comp = 0xffffff ^ intColor;
   return "#" + comp.toString(16).padStart(6, "0");
+}
+
+function copyToClipBoard() {
+  const color = selectedColorDisplay.textContent;
+  navigator.clipboard
+    .writeText(color)
+    .then(() => {
+      copyButton.textContent = "Copied";
+      setTimeout(() => {
+        copyButton.textContent = "Copy to ClipBoard";
+      }, 2500);
+    })
+    .catch((err) => {
+      console.error("Clipboard read failed:", err);
+      alert("Clipboard access denied. Try HTTPS or click manually.");
+    });
 }
