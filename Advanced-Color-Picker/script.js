@@ -1,10 +1,13 @@
 let colorPickerInput = document.querySelector("#color-picker");
 let selectedColorDisplay = document.querySelector("#selected-hex");
-let copyButton = document.querySelector("#copy-selected");
+let copyButton = document.querySelector("#copy-hex");
 let compBox = document.querySelector("#complementary-box");
 let compColorDisplay = document.querySelector("#complementary-hex");
 let favColorDisplay = document.querySelector("#favorites-section");
 let favouriteColorBtn = document.querySelector("#favourite-color");
+let delFavouritesBtn = document.querySelector("#delFavorites");
+let count = 0;
+
 
 colorPickerInput.addEventListener("input", () => {
   let selectedColor = colorPickerInput.value;
@@ -14,8 +17,8 @@ colorPickerInput.addEventListener("input", () => {
 
 copyButton.addEventListener("click", copyToClipBoard);
 favouriteColorBtn.addEventListener("click", addFavouriteColor);
+delFavouritesBtn.addEventListener("click", delFavourites);
 
-console.log(favouriteColorBtn);
 function showSelectedColor(color) {
   selectedColorDisplay.textContent = color;
   selectedColorDisplay.style.color = color;
@@ -44,18 +47,26 @@ function copyToClipBoard() {
       }, 2500);
     })
     .catch((err) => {
-      console.error("Clipboard read failed:", err);
       alert("Clipboard access denied. Try HTTPS or click manually.");
     });
 }
 
 // create function to insert li in favourite div ul
 function addFavouriteColor() {
+  count++;
+  const favColorId = crypto.randomUUID();
   const [primaryColor, compColor] = getColors();
   const primarycolorDiv = createPrimaryColor(primaryColor);
   const compColorDiv = createCompColor(compColor);
-  const liElement = addColorElementstoLi(primarycolorDiv, compColorDiv);
-
+  const countElement = createColorNumber(count);
+  const liElement = addColorElementstoLi(
+    countElement,
+    primarycolorDiv,
+    compColorDiv,
+  );
+  liElement.setAttribute("data-id", favColorId);
+  liElement.classList.add("favorites-list", "colorList");
+  savetoLocalStorage(primaryColor, compColor, favColorId);
   favColorDisplay.classList.add("favorites-section");
   favColorDisplay.append(liElement);
 }
@@ -73,7 +84,8 @@ function createPrimaryColor(primaryColor) {
   const primaryColorHex = document.createElement("p");
   const primaryColorButton = document.createElement("button");
   const primaryColorBox = document.createElement("div");
-  primaryColorHex.classList.add("color-hex");
+
+  primaryColorHex.classList.add("color-hex", "color-number");
   primaryColorHex.innerText = primaryColor;
   primaryColorButton.classList.add("copy-btn");
   primaryColorButton.innerText = "Button";
@@ -91,7 +103,7 @@ function createCompColor(compColor) {
   const compColorHex = document.createElement("p");
   const compColorButton = document.createElement("button");
 
-  compColorHex.classList.add("color-hex");
+  compColorHex.classList.add("color-hex", "color-number");
   compColorHex.innerText = compColor;
   compColorButton.classList.add("copy-btn");
   compColorBox.classList.add("color-swatch");
@@ -102,16 +114,79 @@ function createCompColor(compColor) {
   return compColorDiv;
 }
 
+function createColorNumber(count) {
+  const p = document.createElement("p");
+  p.innerText = count;
+  return p;
+}
+
 // create function to append both color divs in li elements
-function addColorElementstoLi(primarycolorDiv, compColorDiv) {
+function addColorElementstoLi(countElement, primarycolorDiv, compColorDiv) {
   const li = document.createElement("li");
   const colorPairdiv = document.createElement("div");
 
-  li.classList.add("favorites-list");
+  const delBtn = addDltbtn();
+  li.classList.add("favorites-list,colorList");
   colorPairdiv.classList.add("color-pair");
-
-  colorPairdiv.append(primarycolorDiv, compColorDiv);
-  li.append(colorPairdiv);
+  colorPairdiv.append(countElement, primarycolorDiv, compColorDiv);
+  li.append(colorPairdiv, delBtn);
+  delBtn.addEventListener("click", () => {
+    delFavourite(delBtn);
+  });
 
   return li;
 }
+
+// Save Favourites colors to Storage
+function savetoLocalStorage(primaryColor, compColor, favColorId) {
+  const stored = JSON.parse(localStorage.getItem("li") || "[]");
+
+  stored.push({
+    primary: primaryColor,
+    complementary: compColor,
+    Id: favColorId,
+  });
+
+  localStorage.setItem("li", JSON.stringify(stored));
+}
+
+// Render Favourites color on Load
+function renderFavouritesOnFirstLoad() {
+  const storedFavouritesArr = JSON.parse(localStorage.getItem("li") || "[]");
+
+  storedFavouritesArr.forEach((favColor, index) => {
+    const primarycolorDiv = createPrimaryColor(favColor.primary);
+    const compColorDiv = createCompColor(favColor.complementary);
+    const liElement = addColorElementstoLi(primarycolorDiv, compColorDiv);
+    liElement.setAttribute("data-id", favColor.id);
+    favColorDisplay.classList.add("favorites-section");
+    favColorDisplay.append(liElement);
+  });
+}
+
+function addDltbtn() {
+  const deleteBtn = document.createElement("button");
+  deleteBtn.innerText = "Del Color";
+  deleteBtn.classList.add("copy-btn");
+  return deleteBtn;
+}
+
+function delFavourites() {
+  localStorage.removeItem("li");
+  location.reload();
+}
+
+function delFavourite(delBtn) {
+  const elementToDelete = delBtn.parentElement;
+  const Id = elementToDelete.dataset.id;
+  elementToDelete.remove();
+  delFavouriteFromlocalStorage(Id);
+}
+
+function delFavouriteFromlocalStorage(Id) {
+  const storedFavouritesArr = JSON.parse(localStorage.getItem("li") || "[]");
+  let updatedArr = storedFavouritesArr.filter((el) => el.Id !== Id);
+  localStorage.setItem("li", JSON.stringify(updatedArr));
+}
+
+renderFavouritesOnFirstLoad();

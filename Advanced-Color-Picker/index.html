@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Advanced Color Picker</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="picker-container">
-    <div class="picker-title">Advanced Color Picker</div>
-    <!-- Color Picker Input -->
-    <input type="color" id="color-picker" class="color-input"  />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Color Picker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="picker-container">
+      <div class="picker-title">Advanced Color Picker</div>
+      <!-- Color Picker Input -->
+      <input type="color" id="color-picker" class="color-input" />
 
-    <!-- Selected Color Info -->
-    <div class="color-info">
-      <div class="color-code" id="selected-hex">#ffffff</div>
+      <!-- Selected Color Info -->
+      <div class="color-info">
+        <div
+          class="color-code"
+          id="selected-hex"
+          style="background-color: #ffffff"
+        >
+          #ffffff
+        </div>
+        <button class="copy-hex" id="copy-hex">Copy Hex</button>
+      </div>
+
+      <!-- Complementary Color Section -->
+      <div class="section-heading">Complementary Color</div>
+      <div
+        class="complementary-box"
+        id="complementary-box"
+        style="background: #db6834"
+      ></div>
       <button class="btn-copy" id="copy-selected">Copy to Clipboard</button>
-    </div>
 
-    <!-- Complementary Color Section -->
-    <div class="section-heading">Complementary Color</div>
-    <div class="complementary-box" id="complementary-box" style="background: #db6834;"></div>
-    <div class="color-code" id="complementary-hex">#db6834</div>
+      <div class="color-code" id="complementary-hex">#db6834</div>
 
-    <!-- Favorite Color Section -->
+      <!-- Favorite Color Section -->
       <button class="btn-copy" id="favourite-color">Add to Favourites</button>
+      <button class="btn-copy" id="delFavorites">Delete Favourites</button>
 
-    <div class="section-heading">Favorite Color</div>
-    <div class="favorites-section" id="favorites-section"></div>
-  </div>
-  <script src="script.js"></script>
-</body>
+      <div class="section-heading">Favorite Color</div>
+      <div class="favorites-section" id="favorites-section"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
